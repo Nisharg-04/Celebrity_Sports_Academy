@@ -1,0 +1,117 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px;
+    background-image: linear-gradient(to right, #a147e4, #535cf1);
+}
+
+#box {
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px #000000;
+    border-radius: 20px;
+}
+
+#img-left-box {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: url("./images/heroback.jpg") no-repeat center center/cover;
+    width: 60%;
+    height: 100%;
+    z-index: -1;
+}
+
+#left-box {
+    width: 60%;
+    display: inline-block;
+    background: transparent;
+    border-radius: 20px 0px 0px 20px;
+    padding: 40px;
+    /* background-color: #a047e49d; */
+    box-shadow: 0px 0px 5px 0px #000000b6;
+}
+
+#left-box h3 {
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#left-box p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#right-box {
+    width: 40%;
+    display: inline-block;
+    padding: 10px;
+}
+
+#right-box img {
+    width: 150px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+#right-box h1 {
+    font-size: 5rem;
+    margin-left: 40px;
+    margin-top: 90px;
+    margin-bottom: 30px;
+}
+
+#right-box p {
+    font-size: 1.2rem;
+    margin-left: 40px;
+}
+
+#right-box p a {
+    text-decoration: none;
+    color: #535cf1;
+}
+
+#right-box #input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.input {
+    margin: 10px;
+    width: 75%;
+    height: 40px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.559);
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 15px;
+    width: 24%;
+    margin-top: 41px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #e9cdff;
+}
