@@ -285,6 +285,12 @@ box-shadow: 7px 10px 15px rgba(0,0,0,0.3);
   padding: 10px;
   border-radius: 25px;
 }
+.services:hover{
+  transition: all ease-in-out;
+  transition:  5ms;
+transform: scale(1.02);
+border-color: #535cf1;
+}
 .service-icon{
   margin: 3px;
 }
