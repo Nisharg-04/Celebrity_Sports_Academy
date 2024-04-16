@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <?php
+    require ("db.php");
+    session_start();
+    ?>
     <div class="mynav">
         <div class="nav">
             <a href="#" class="logo">
@@ -21,24 +25,21 @@
             </div>
             <div class="menu-bar">
                 <ul class="menu-items">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#pricing">Programmes</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="services.php">Services</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="#">Event</a></li>
                 </ul>
             </div>
-            <!-- <div class="navbar-social">
-                <span>Follow Us</span>
-                <ul>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div> -->
             <div class="login">
-                <a href="login.html"><button id="lrbtn" class="">Login/Resister</button></a>
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo "<a href='logout.php'><button id='lrbtn' class=''>Logout</button></a>";
+                } else {
+
+                    echo "<a href='login.php'><button id='lrbtn' class=''>Login/Resister</button></a>";
+                }
+                ?>
             </div>
         </div>
 
@@ -60,35 +61,38 @@
     </div>
 
     <section id="eventBox">
-        <div class="event">
-            <div class="event-text">
-                <h2>Event 1</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus amet delectus dolore omnis quibusdam culpa, earum quod iste ut sed tenetur consequatur odit tempora quas laudantium aspernatur possimus veniam impedit.</p>
-                <button>Register</button>
+
+        <?php
+        $sql = "select * from `event`";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "
+            <div class='event'>
+                <div class='event-text'>
+                <h2>" . $row["title"] . "</h2>
+                <p>" . $row["description"] . "</p>
+                ";
+            if (isset($_SESSION["email"])) {
+                $find = "select * from `user_event` where `event_id` = '$row[event_id]' and `user_id` = '$_SESSION[email]'";
+                $userEvent = mysqli_query($conn, $find);
+                if (mysqli_num_rows($userEvent) == 1) {
+                    echo "<button style='cursor: not-allowed;'>Registered</button>";
+                } else {
+                    echo "
+                <form method='post' action='register_event.php'>
+                    <input type='hidden' name='event_id' value='$row[event_id];'>
+                    <button type='submit'>Register</button>
+                </form>";
+                }
+            } else {
+                echo "<button style='cursor: not-allowed;' onclick='alert(`Login to register in event!!`)'>Register</button>";
+            }
+            echo "</div>
             </div>
-        </div>
-        <div class="event">
-            <div class="event-text">
-                <h2>Event 2</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus amet delectus dolore omnis quibusdam culpa, earum quod iste ut sed tenetur consequatur odit tempora quas laudantium aspernatur possimus veniam impedit.</p>
-                <button>Register</button>
-            </div>
-        </div>
-        <div class="event">
-            <div class="event-text">
-                <h2>Event 3</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus amet delectus dolore omnis quibusdam culpa, earum quod iste ut sed tenetur consequatur odit tempora quas laudantium aspernatur possimus veniam impedit.</p>
-                <button>Register</button>
-            </div>
-        </div>
-        <div class="event">
-            <div class="event-text">
-                <h2>Event 4</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus amet delectus dolore omnis quibusdam culpa, earum quod iste ut sed tenetur consequatur odit tempora quas laudantium aspernatur possimus veniam impedit.</p>
-                <button>Register</button>
-            </div>
-        </div>
-        
+            ";
+        }
+        ?>
+
     </section>
 
 

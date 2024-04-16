@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <?php
+    require("db.php");
+    session_start();
+    ?>
     <div class="mynav">
         <div class="nav">
             <a href="#" class="logo">
@@ -23,24 +27,23 @@
             <div class="menu-bar">
                 <ul class="menu-items">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#pricing">Programmes</a></li>
+                    <li><a href="services.php">Services</a></li>
                     <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="event.php">Event</a></li>
                 </ul>
             </div>
-            <!-- <div class="navbar-social">
-                <span>Follow Us</span>
-                <ul>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div> -->
             <div class="login">
-                <a href="login.html"><button id="lrbtn" class="">Login/Resister</button></a>
+                <?php
+                if(isset($_SESSION["email"]))
+                {
+                    echo "<a href='logout.php'><button id='lrbtn' class=''>Logout</button></a>";
+                }
+                else{
+
+                    echo "<a href='login.php'><button id='lrbtn' class=''>Login/Resister</button></a>";
+                }
+                ?>
             </div>
         </div>
 
@@ -63,7 +66,7 @@
 
             </h6>
             <ul class="header-btn">
-                <li class="main-btn btn-one"><a href="#">GET IN TOUCH</a></li>
+                <li class="main-btn btn-one"><a href="#contact">GET IN TOUCH</a></li>
                 <li class="main-btn btn-two"><a href="#">WATCH THE VIDEO <i class="fa fa-play"></i> </a></li>
             </ul>
         </div>
@@ -180,91 +183,7 @@
     </div>
     </section>
 
-    <section class="pricing offset" id="pricing">
-        <h3>Our Programmes</h3>
-        <h6>Under the professional guidance of expert coaches, CSA not only works toward best on-field training but also
-            aims to enlighten the youth by conducting special Health, Fitness and Physical Education classes.</h6>
-
-        <div class="table">
-            <div class="basic">
-                <div class="b-head">
-                    <h3>SPORTS NUTRITION PROGRAM</h3>
-                </div>
-                <div class="price">
-                    <span class="sign">₹</span>
-                    <span class="currency">79</span>
-                    <span class="cent">.99/</span>
-                    <span class="month">MON</span>
-
-                </div>
-                <ul>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Enables you to train longer and harder
-                    </li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Maintains a healthy immune system</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Improves recovery</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Reduces potential of injury</li>
-                </ul>
-                <ul class="see-btn">
-
-                    <a href="#" class="main-btn btn-two">See More</a>
-
-                </ul>
-            </div>
-            <div class="basic standard">
-                <div class="b-head">
-                    <h3>PROFESSIONAL SPORTS COACHING</h3>
-                </div>
-                <div class="price">
-                    <span class="sign">₹</span>
-                    <span class="currency">199</span>
-                    <span class="cent">.99/</span>
-                    <span class="month">MON</span>
-
-                </div>
-                <ul>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Learning about theories, philosophies and
-                        safety practices of team sports.</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Sessions on respective sports starting
-                        from basics.</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Proper attention to weaknesses and
-                        strengths of the athlete</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Confidence and stamina boosting
-                        exercises.</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Relaxation and meditation techniques.
-                    </li>
-                </ul>
-                <ul class="see-btn">
-
-                    <a href="#" class="main-btn btn-two">See More</a>
-
-                </ul>
-            </div>
-            <div class="basic">
-                <div class="b-head">
-                    <h3>FITNESS EXCELLENCE PROGRAM</h3>
-                </div>
-                <div class="price">
-                    <span class="sign">₹</span>
-                    <span class="currency">199</span>
-                    <span class="cent">.99/</span>
-                    <span class="month">MON</span>
-
-                </div>
-                <ul>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Balanced Diet</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Speed and Agility</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Movement Restoration</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>Yoga and Meditation</li>
-                </ul>
-                <ul class="see-btn">
-
-                    <a href="#" class="main-btn btn-two">See More</a>
-
-                </ul>
-            </div>
-        </div>
-
-    </section>
+    
     <section class="callToAct">
         <div class="parallax">
             <div class="call-content">

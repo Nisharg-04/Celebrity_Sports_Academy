@@ -1,7 +1,6 @@
 const form = document.getElementById("form");
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
     const emailTest = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passwordTest = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
     const nameTest = /^[a-zA-Z]{2,}$/;
@@ -15,6 +14,7 @@ form.addEventListener("submit", (e) => {
             "Invalid first name. First name must be at least 2 characters long and contain only alphabets."
         );
         form.fname.focus();
+        e.preventDefault();
         return;
     }
     if (!nameTest.test(form.mname.value)) {
@@ -22,6 +22,7 @@ form.addEventListener("submit", (e) => {
             "Invalid middle name. Middle name must be at least 2 characters long and contain only alphabets."
         );
         form.mname.focus();
+        e.preventDefault();
         return;
     }
     if (!nameTest.test(form.lname.value)) {
@@ -29,12 +30,14 @@ form.addEventListener("submit", (e) => {
             "Invalid last name. Last name must be at least 2 characters long and contain only alphabets."
         );
         form.lname.focus();
+        e.preventDefault();
         return;
     }
 
     if (!emailTest.test(form.email.value)) {
         alert("Invalid email. Email must be in the standard format");
         form.email.focus();
+        e.preventDefault();
         return;
     }
 
@@ -43,22 +46,26 @@ form.addEventListener("submit", (e) => {
             "Invalid mobile number. Mobile number must be 10 digits long and contain only numbers."
         );
         form.mobile.focus();
+        e.preventDefault();
         return;
     }
 
     if (!addressTest.test(form.street.value)) {
         alert("Street cannot be empty. Please enter a valid street name.");
         form.street.focus();
+        e.preventDefault();
         return;
     }
     if (!addressTest.test(form.city.value)) {
         alert("City cannot be empty. Please enter a valid city name.");
         form.city.focus();
+        e.preventDefault();
         return;
     }
     if (!addressTest.test(form.state.value)) {
         alert("State cannot be empty. Please enter a valid state name.");
         form.state.focus();
+        e.preventDefault();
         return;
     }
     if (!pincodeTest.test(form.pincode.value)) {
@@ -66,6 +73,7 @@ form.addEventListener("submit", (e) => {
             "Invalid pincode. Pincode must be 6 digits long and contain only numbers."
         );
         form.pincode.focus();
+        e.preventDefault();
         return;
     }
 
@@ -76,6 +84,7 @@ form.addEventListener("submit", (e) => {
             "Invalid blood group. Blood group must be one of A, B, AB, O, ABO followed by + or -"
         );
         form.bloodgroup.focus();
+        e.preventDefault();
         return;
     }
 
@@ -84,6 +93,7 @@ form.addEventListener("submit", (e) => {
             "Invalid emergency mobile number. Mobile number must be 10 digits long and contain only numbers."
         );
         form.emergencyMobile.focus();
+        e.preventDefault();
         return;
     }
 
@@ -92,8 +102,10 @@ form.addEventListener("submit", (e) => {
             "Invalid password. Password must be at least 8 characters long, contain at least one number, and contain at least one special character."
         );
         form.password.focus();
+        e.preventDefault();
         return;
     }
 
     window.location.href = "program_selection.html";
+    return;
 });

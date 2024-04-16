@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <?php
+    require("db.php");
+    session_start();
+    ?>
     <div class="mynav">
         <div class="nav">
             <a href="#" class="logo">
@@ -22,10 +26,11 @@
             </div>
             <div class="menu-bar">
                 <ul class="menu-items">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="#service">Services</a></li>
-                    <li><a href="#pricing">Programmes</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="event.php">Event</a></li>
                 </ul>
             </div>
             <!-- <div class="navbar-social">
@@ -39,7 +44,16 @@
             </div>
         </div> -->
             <div class="login">
-                <a href="login.html"><button id="lrbtn" class="">Login/Resister</button></a>
+            <?php
+                if(isset($_SESSION["email"]))
+                {
+                    echo "<a href='logout.php'><button id='lrbtn' class=''>Logout</button></a>";
+                }
+                else{
+
+                    echo "<a href='login.php'><button id='lrbtn' class=''>Login/Resister</button></a>";
+                }
+                ?>
             </div>
         </div>
 
