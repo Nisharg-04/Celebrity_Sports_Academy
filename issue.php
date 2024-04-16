@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <title>Issue</title>
+    <link rel="stylesheet" href="issue.css">
 </head>
 
 <body>
@@ -16,7 +16,6 @@
         echo "<script>window.location.href = 'index.php';</script>";
     }
     ?>
-
     <section id="navbar">
         <div class="mynav">
             <div class="nav">
@@ -51,65 +50,80 @@
             </div>
 
             <div class="hero-text">
-                <h1 style="font-size: 100px;">Dashboard</h1>
+                <h1 style="font-size: 100px;">Issue</h1>
             </div>
         </div>
     </section>
 
     <section id="mainSection">
-        <div id="add" class="function">
-            <h2>Add event</h2>
-            <form action="add_event.php" method="post" id="addform">
-                <div id="addTitle">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title">
-                </div>
-                <div id="addDes">
-                    <label for="description">Description</label>
-                    <input type="text" name="description" id="description">
-                </div>
+        <!-- <div class="mainbox">
+            <div>
+                <h4>Name : </h4>
+                <p>dakshil</p>
+            </div>
+            <div>
+                <h4>Email : </h4>
+                <p>abc@abc.abc</p>
+            </div>
+            <div>
+                <h4>Subject : </h4>
+                <p>Subject</p>
+            </div>
+            <div>
+                <h4>Mobile</h4>
+                <p>123457890</p>
+            </div>
+            <div>
+                <h4>Message</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, reprehenderit! A, ipsum
+                    expedita. Iste, nulla? Excepturi quos, repellendus alias aliquid fuga atque, illo repudiandae nam
+                    soluta doloremque iusto officiis similique?</p>
+            </div>
+            <a href="deleteIssue.php">Remove</a>
+        </div> -->
 
-                <div id="addSubmit">
-                    <input class="btn" type="submit" value="Add event">
-                </div>
+        <?php
+        require("db.php");
+        $sql = "SELECT * FROM `contactus`";
+        $result = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                if($row['solved'] == 0)
+                echo "
+                <div class='mainbox'>
+            <div>
+                <h4>Name : </h4>
+                <p>$row[name]</p>
+            </div>
+            <div>
+                <h4>Email : </h4>
+                <p>$row[email]</p>
+            </div>
+            <div>
+                <h4>Subject : </h4>
+                <p>$row[subject]</p>
+            </div>
+            <div>
+                <h4>Mobile : </h4>
+                <p>$row[phone]</p>
+            </div>
+            <div>
+                <h4>Message : </h4>
+                <p>$row[message]</p>
+            </div>
+
+            <form action='deleteIssue.php' method='post'>
+                <input type='hidden' name='id' value='$row[id]'>
+                <input type='submit' value='Remove' id='deleteIssue'>
             </form>
-        </div>
-        <div id="update" class="function">
-            <h2>Modify event</h2>
-            <form action="update_event.php" method="post" id="updateform">
-                <div id="updateTitle">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title">
-                </div>
 
-                <div id="updateDes">
-                    <label for="description">New Description</label>
-                    <input type="text" name="description" id="description">
-                </div>
-
-                <div id="updateSubmit">
-                    <input class="btn" type="submit" value="Modify event">
-                </div>
-            </form>
         </div>
-        <div id="delete" class="function">
-            <h2>Delete event</h2>
-            <form action="delete_event.php" method="post" id="deleteform">
-                <div id="deleteTitle">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title">
-                </div>
+                ";
+            }
+        }
+        ?>
 
-                <div id="deleteSubmit">
-                    <input type="submit" class="btn" value="Delete event">
-                </div>
-            </form>
-        </div>
     </section>
-
-    <div id="issueLink">
-        <a href="issue.php">Check issue of user</a>
-    </div>
 
     <section id="footerSection">
         <footer>
@@ -171,7 +185,6 @@
         </div>
     </section>
     <script src="index.js"></script>
-    <script src="dashboard.js"></script>
 </body>
 
 </html>

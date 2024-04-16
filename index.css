@@ -533,7 +533,7 @@ border-color: #535cf1;
   margin: 2rem auto;
   width: 170px;
 }
-.contact .form .see-btn a {
+.contact .form .see-btn button {
   background-image: linear-gradient(to right, #535cf1, #a147e4);
   border-radius: 5px;
   color: white;

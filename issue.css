@@ -289,110 +289,6 @@ footer .second-row .text {
     word-spacing: normal;
 }
 
-.function {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 10px 0px #000000;
-    border-radius: 20px;
-    height: 300px;
-    margin: 20px;
-}
-
-.function h2 {
-    font-size: 44px;
-    font-weight: 600;
-    color: #121212;
-    margin-bottom: 16px;
-}
-
-#addTitle label {
-    font-size: 25px;
-}
-
-#addTitle input {
-    height: 45px;
-    width: 485px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-#addDes label {
-    font-size: 25px;
-}
-
-#addDes input {
-    height: 45px;
-    width: 400px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-#addSubmit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-#updateTitle label {
-    font-size: 25px;
-}
-
-#updateTitle input {
-    height: 45px;
-    width: 547px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-#updateDes label {
-    font-size: 25px;
-}
-
-#updateDes input {
-    height: 45px;
-    width: 400px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-#updateSubmit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-#deleteTitle label {
-    font-size: 25px;
-}
-
-#deleteTitle input {
-    height: 45px;
-    width: 400px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-#deleteSubmit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
 .btn {
     margin-top: 10px;
     width: 300px;
@@ -403,22 +299,30 @@ footer .second-row .text {
     font-size: 20px;
 }
 
-#issueLink{
-    display: flex;
-    align-items: center;
-    justify-self: center;
-    width: 300px;
-    margin: auto;
-    margin-bottom: 20px;
+#mainSection {
+    width: 100%;
 }
 
-#issueLink a{
-    font-size: 30px;
-    color: #e100ff;
-    text-decoration: none;
+.mainbox {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
 }
 
-#issueLink a:hover{
-    color: #ff00e1;
-    text-decoration: underline;
+.mainbox h4 {
+    display: inline-block;
+}
+
+.mainbox p {
+    display: inline-block;
+}
+
+#deleteIssue {
+    color: white;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #a147e4;
 }

@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    require("db.php");
+    require ("db.php");
     session_start();
     ?>
     <div class="mynav">
@@ -44,12 +44,10 @@
             </div>
         </div> -->
             <div class="login">
-            <?php
-                if(isset($_SESSION["email"]))
-                {
+                <?php
+                if (isset($_SESSION["email"])) {
                     echo "<a href='logout.php'><button id='lrbtn' class=''>Logout</button></a>";
-                }
-                else{
+                } else {
 
                     echo "<a href='login.php'><button id='lrbtn' class=''>Login/Resister</button></a>";
                 }
@@ -71,7 +69,7 @@
                 Services Offered By </h1>
             <h3>CELEBRITY SPORTS ACADEMY</h3>
             <h6>
-        
+
 
             </h6>
             <!-- <ul class="header-btn">
@@ -199,23 +197,27 @@
 
     <section class="contact offset" id="contact">
         <h3>Get In Touch</h3>
-        <h6>Stop wasting time and money designing <br> and managing website that doesn't get result. Happiness
-            guaranteed!</h6>
+        <h6>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias, praesentium facilis. Pariatur ex aliquam
+            alias! Nostrum repellat distinctio vero provident deserunt alias, exercitationem quia sunt recusandae! Ex,
+            beatae deserunt. Tempora.</h6>
         <div class="form">
-            <div class="first-row">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="first-row">
-                <input type="text" placeholder="Subject">
-                <input type="text" placeholder="Phone">
-            </div>
-            <textarea name="" id="" cols="30" rows="5" placeholder="Message"></textarea>
-            <ul class="see-btn">
+            <form action="contact.php" method="post" id="contactForm">
+                <div class="first-row">
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="first-row">
+                    <input type="text" name="subject" placeholder="Subject">
+                    <input type="text" name="phone" placeholder="Phone">
+                </div>
+                <textarea name="message" id="" cols="30" rows="5" placeholder="Message"></textarea>
+                <ul class="see-btn">
 
-                <a href="#" class="main-btn btn-two">Submit</a>
-
-            </ul>
+                    <button class="main-btn btn-two"
+                        style="background-image: linear-gradient(to right, #535cf1, #a147e4);border-radius: 5px;color: white;border: none;"
+                        type="submit">Submit</button>
+                </ul>
+            </form>
         </div>
     </section>
 
@@ -282,6 +284,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <script src='contact.js'></script>
 </body>
 
 </html>
